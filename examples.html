@@ -1,0 +1,138 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Example &mdash; moke 1.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="moke 1.1.0 documentation" href="index.html" />
+    <link rel="prev" title="Conventions" href="conventions.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="conventions.html" title="Conventions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">moke 1.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="example">
+<h1>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="stand-alone-command-line-apps">
+<h2>Stand-alone command line apps<a class="headerlink" href="#stand-alone-command-line-apps" title="Permalink to this headline">¶</a></h2>
+<p>If for some reason you do not want call <tt class="docutils literal"><span class="pre">moke</span></tt> to execute your mokefile it
+is possible to rename it and call it directly.:</p>
+<div class="highlight-python"><pre>chmod +x mokefile.py
+mv mokefile.py myapp.py
+./myapp.py &lt;task&gt;</pre>
+</div>
+<p>This requires shebang line:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python2.7</span>
+</pre></div>
+</div>
+<p>If your <tt class="docutils literal"><span class="pre">mokefile.py</span></tt> contains only a single task call the function <tt class="docutils literal"><span class="pre">main</span></tt>
+and you will be able to omit <tt class="docutils literal"><span class="pre">&lt;task&gt;</span></tt> from the call:</p>
+<div class="highlight-python"><pre>./myapp.py</pre>
+</div>
+<p>The tiny <tt class="docutils literal"><span class="pre">grop.py</span></tt> example included in the test-suite is a tiny replacement
+for <tt class="docutils literal"><span class="pre">grep</span></tt>.</p>
+<p>Example usage (in the <tt class="docutils literal"><span class="pre">test</span></tt> directory):</p>
+<div class="highlight-python"><pre>cat data/grop.inp | scripts/grop.py ".*\(\d{2}\).*"'</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Example</a><ul>
+<li><a class="reference internal" href="#stand-alone-command-line-apps">Stand-alone command line apps</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="conventions.html"
+                        title="previous chapter">Conventions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/examples.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="conventions.html" title="Conventions"
+             >previous</a> |</li>
+        <li><a href="index.html">moke 1.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Marcin Cieslik.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
