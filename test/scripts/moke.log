@@ -1,0 +1,96 @@
+2013-04-05 10:53:58,225	moke (version 1.1.3)
+2013-04-05 10:53:58,225	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:53:58,225	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:53:58,225	task: sayhello
+2013-04-05 10:53:58,225	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:53:58,225	stdin: /proc/self/fd/0
+2013-04-05 10:53:58,225	stdout: /proc/self/fd/1
+2013-04-05 10:53:58,225	stderr: /proc/self/fd/2
+2013-04-05 10:54:39,792	moke (version 1.1.3)
+2013-04-05 10:54:39,792	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:54:39,792	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:54:39,792	task: sayhello
+2013-04-05 10:54:39,792	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:54:39,792	stdin: /proc/self/fd/0
+2013-04-05 10:54:39,792	stdout: /proc/self/fd/1
+2013-04-05 10:54:39,792	stderr: /proc/self/fd/2
+2013-04-05 10:54:41,536	moke (version 1.1.3)
+2013-04-05 10:54:41,537	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:54:41,537	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:54:41,537	task: sayhello
+2013-04-05 10:54:41,537	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:54:41,537	stdin: /proc/self/fd/0
+2013-04-05 10:54:41,537	stdout: /proc/self/fd/1
+2013-04-05 10:54:41,537	stderr: /proc/self/fd/2
+2013-04-05 10:54:51,739	moke (version 1.1.3)
+2013-04-05 10:54:51,739	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:54:51,739	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:54:51,739	task: sayhello
+2013-04-05 10:54:51,739	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:54:51,739	stdin: /proc/self/fd/0
+2013-04-05 10:54:51,739	stdout: /proc/self/fd/1
+2013-04-05 10:54:51,739	stderr: /proc/self/fd/2
+2013-04-05 10:54:52,755	moke (version 1.1.3)
+2013-04-05 10:54:52,755	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:54:52,755	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:54:52,755	task: sayhello
+2013-04-05 10:54:52,755	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:54:52,755	stdin: /proc/self/fd/0
+2013-04-05 10:54:52,755	stdout: /proc/self/fd/1
+2013-04-05 10:54:52,755	stderr: /proc/self/fd/2
+2013-04-05 10:55:11,612	moke (version 1.1.3)
+2013-04-05 10:55:11,612	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:55:11,612	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:55:11,612	task: sayhello
+2013-04-05 10:55:11,612	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:55:11,612	stdin: /proc/self/fd/0
+2013-04-05 10:55:11,612	stdout: /proc/self/fd/1
+2013-04-05 10:55:11,612	stderr: /proc/self/fd/2
+2013-04-05 10:55:12,903	moke (version 1.1.3)
+2013-04-05 10:55:12,904	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:55:12,904	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:55:12,904	task: sayhello
+2013-04-05 10:55:12,904	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:55:12,904	stdin: /proc/self/fd/0
+2013-04-05 10:55:12,904	stdout: /proc/self/fd/1
+2013-04-05 10:55:12,904	stderr: /proc/self/fd/2
+2013-04-05 10:55:42,326	moke (version 1.1.3)
+2013-04-05 10:55:42,326	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:55:42,326	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:55:42,326	task: sayhello
+2013-04-05 10:55:42,326	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:55:42,326	stdin: /proc/self/fd/0
+2013-04-05 10:55:42,326	stdout: /proc/self/fd/1
+2013-04-05 10:55:42,326	stderr: /proc/self/fd/2
+2013-04-05 10:55:45,984	moke (version 1.1.3)
+2013-04-05 10:55:45,984	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:55:45,984	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:55:45,984	task: sayhello
+2013-04-05 10:55:45,984	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:55:45,984	stdin: /proc/self/fd/0
+2013-04-05 10:55:45,984	stdout: /proc/self/fd/1
+2013-04-05 10:55:45,984	stderr: /proc/self/fd/2
+2013-04-05 10:56:53,100	moke (version 1.1.3)
+2013-04-05 10:56:53,100	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:56:53,100	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:56:53,100	task: sayhello
+2013-04-05 10:56:53,100	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:56:53,100	stdin: /proc/self/fd/0
+2013-04-05 10:56:53,100	stdout: /proc/self/fd/1
+2013-04-05 10:56:53,100	stderr: /proc/self/fd/2
+2013-04-05 10:57:15,647	moke (version 1.1.3)
+2013-04-05 10:57:15,647	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:57:15,647	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:57:15,647	task: sayhello
+2013-04-05 10:57:15,647	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:57:15,647	stdin: /proc/self/fd/0
+2013-04-05 10:57:15,647	stdout: /proc/self/fd/1
+2013-04-05 10:57:15,647	stderr: /proc/self/fd/2
+2013-04-05 10:57:58,813	moke (version 1.1.3)
+2013-04-05 10:57:58,813	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts"
+2013-04-05 10:57:58,814	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/scripts/tworeq.py"
+2013-04-05 10:57:58,814	task: sayhello
+2013-04-05 10:57:58,814	params: ('a', path('1')) ('bc', [path('2')]) ('d', 1)
+2013-04-05 10:57:58,814	stdin: /proc/self/fd/0
+2013-04-05 10:57:58,814	stdout: /proc/self/fd/1
+2013-04-05 10:57:58,814	stderr: /proc/self/fd/2

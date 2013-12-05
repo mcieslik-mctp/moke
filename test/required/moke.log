@@ -1,0 +1,288 @@
+2013-01-15 11:57:41,060	moke (version 1.1.2)
+2013-01-15 11:57:41,060	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 11:57:41,061	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 11:57:41,061	task: sayhello
+2013-01-15 11:57:41,061	params: ('name', <moke.core.Argument object at 0x21e9310>)
+2013-01-15 11:57:41,061	stdin: /proc/self/fd/0
+2013-01-15 11:57:41,061	stdout: /proc/self/fd/1
+2013-01-15 11:57:41,061	stderr: /proc/self/fd/2
+2013-01-15 11:57:41,061	executing hello task
+2013-01-15 12:07:31,484	moke (version 1.1.2)
+2013-01-15 12:07:31,484	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:07:31,484	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:07:31,484	task: sayhello
+2013-01-15 12:07:31,485	params: ('name', <moke.core.Argument object at 0x23b2310>)
+2013-01-15 12:07:31,485	stdin: /proc/self/fd/0
+2013-01-15 12:07:31,485	stdout: /proc/self/fd/1
+2013-01-15 12:07:31,485	stderr: /proc/self/fd/2
+2013-01-15 12:07:31,485	executing hello task
+2013-01-15 12:08:43,060	moke (version 1.1.2)
+2013-01-15 12:08:43,061	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:08:43,061	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:08:43,061	task: sayhello
+2013-01-15 12:08:43,061	params: ('name', <moke.core.Argument object at 0xe1c310>)
+2013-01-15 12:08:43,061	stdin: /proc/self/fd/0
+2013-01-15 12:08:43,061	stdout: /proc/self/fd/1
+2013-01-15 12:08:43,061	stderr: /proc/self/fd/2
+2013-01-15 12:08:43,061	executing hello task
+2013-01-15 12:09:40,497	moke (version 1.1.2)
+2013-01-15 12:09:40,498	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:09:40,498	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:09:40,498	task: sayhello
+2013-01-15 12:09:40,498	params: ('name', 'me')
+2013-01-15 12:09:40,498	stdin: /proc/self/fd/0
+2013-01-15 12:09:40,498	stdout: /proc/self/fd/1
+2013-01-15 12:09:40,498	stderr: /proc/self/fd/2
+2013-01-15 12:09:40,498	executing hello task
+2013-01-15 12:12:23,001	moke (version 1.1.2)
+2013-01-15 12:12:23,001	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:12:23,001	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:12:23,001	task: sayhello
+2013-01-15 12:12:23,001	params: ('name', <moke.core.Argument object at 0x1074310>)
+2013-01-15 12:12:23,001	stdin: /proc/self/fd/0
+2013-01-15 12:12:23,001	stdout: /proc/self/fd/1
+2013-01-15 12:12:23,001	stderr: /proc/self/fd/2
+2013-01-15 12:12:23,001	executing hello task
+2013-01-15 12:13:06,479	moke (version 1.1.2)
+2013-01-15 12:13:06,479	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:13:06,479	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:13:06,479	task: sayhello
+2013-01-15 12:13:06,479	params: ('name', <moke.core.Argument object at 0x1196290>)
+2013-01-15 12:13:06,479	stdin: /proc/self/fd/0
+2013-01-15 12:13:06,479	stdout: /proc/self/fd/1
+2013-01-15 12:13:06,479	stderr: /proc/self/fd/2
+2013-01-15 12:13:06,479	executing hello task
+2013-01-15 12:15:32,794	moke (version 1.1.2)
+2013-01-15 12:15:32,794	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:15:32,794	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:15:32,794	task: sayhello
+2013-01-15 12:15:32,794	params: ('name', 'me')
+2013-01-15 12:15:32,794	stdin: /proc/self/fd/0
+2013-01-15 12:15:32,794	stdout: /proc/self/fd/1
+2013-01-15 12:15:32,794	stderr: /proc/self/fd/2
+2013-01-15 12:15:32,794	executing hello task
+2013-01-15 12:15:35,976	moke (version 1.1.2)
+2013-01-15 12:15:35,976	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:15:35,976	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:15:35,976	task: sayhello
+2013-01-15 12:15:35,976	params: ('name', <moke.core.Argument object at 0x1684310>)
+2013-01-15 12:15:35,976	stdin: /proc/self/fd/0
+2013-01-15 12:15:35,976	stdout: /proc/self/fd/1
+2013-01-15 12:15:35,976	stderr: /proc/self/fd/2
+2013-01-15 12:15:35,976	executing hello task
+2013-01-15 12:15:38,974	moke (version 1.1.2)
+2013-01-15 12:15:38,974	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:15:38,974	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:15:38,974	task: sayhello
+2013-01-15 12:15:38,974	params: ('name', 'me')
+2013-01-15 12:15:38,974	stdin: /proc/self/fd/0
+2013-01-15 12:15:38,975	stdout: /proc/self/fd/1
+2013-01-15 12:15:38,975	stderr: /proc/self/fd/2
+2013-01-15 12:15:38,975	executing hello task
+2013-01-15 12:15:41,311	moke (version 1.1.2)
+2013-01-15 12:15:41,311	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:15:41,311	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:15:41,311	task: sayhello
+2013-01-15 12:15:41,311	params: ('name', <moke.core.Argument object at 0x1499310>)
+2013-01-15 12:15:41,311	stdin: /proc/self/fd/0
+2013-01-15 12:15:41,311	stdout: /proc/self/fd/1
+2013-01-15 12:15:41,311	stderr: /proc/self/fd/2
+2013-01-15 12:15:41,311	executing hello task
+2013-01-15 12:15:55,724	moke (version 1.1.2)
+2013-01-15 12:15:55,724	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:15:55,724	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:15:55,724	task: sayhello
+2013-01-15 12:15:55,724	params: ('name', <moke.core.Argument object at 0x272d290>)
+2013-01-15 12:15:55,724	stdin: /proc/self/fd/0
+2013-01-15 12:15:55,724	stdout: /proc/self/fd/1
+2013-01-15 12:15:55,724	stderr: /proc/self/fd/2
+2013-01-15 12:15:55,724	executing hello task
+2013-01-15 12:16:03,224	moke (version 1.1.2)
+2013-01-15 12:16:03,225	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:16:03,225	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:16:03,225	task: sayhello
+2013-01-15 12:16:03,225	params: ('name', <moke.core.Argument object at 0x141a310>)
+2013-01-15 12:16:03,225	stdin: /proc/self/fd/0
+2013-01-15 12:16:03,225	stdout: /proc/self/fd/1
+2013-01-15 12:16:03,225	stderr: /proc/self/fd/2
+2013-01-15 12:16:03,225	executing hello task
+2013-01-15 12:18:11,971	moke (version 1.1.2)
+2013-01-15 12:18:11,971	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:18:11,971	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:18:11,971	task: sayhello
+2013-01-15 12:18:11,971	params: ('name', <class 'moke.core.RequiredArgument'>)
+2013-01-15 12:18:11,971	stdin: /proc/self/fd/0
+2013-01-15 12:18:11,971	stdout: /proc/self/fd/1
+2013-01-15 12:18:11,971	stderr: /proc/self/fd/2
+2013-01-15 12:18:11,971	executing hello task
+2013-01-15 12:19:30,075	moke (version 1.1.2)
+2013-01-15 12:19:30,075	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:19:30,075	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:19:30,075	task: sayhello
+2013-01-15 12:19:30,075	params: ('name', None)
+2013-01-15 12:19:30,075	stdin: /proc/self/fd/0
+2013-01-15 12:19:30,075	stdout: /proc/self/fd/1
+2013-01-15 12:19:30,075	stderr: /proc/self/fd/2
+2013-01-15 12:19:30,075	executing hello task
+2013-01-15 12:20:56,122	moke (version 1.1.2)
+2013-01-15 12:20:56,122	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:20:56,122	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:20:56,122	task: sayhello
+2013-01-15 12:20:56,122	params: ('name', 'aaa')
+2013-01-15 12:20:56,122	stdin: /proc/self/fd/0
+2013-01-15 12:20:56,122	stdout: /proc/self/fd/1
+2013-01-15 12:20:56,122	stderr: /proc/self/fd/2
+2013-01-15 12:20:56,122	executing hello task
+2013-01-15 12:21:02,331	moke (version 1.1.2)
+2013-01-15 12:21:02,331	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:21:02,331	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:21:02,331	task: sayhello
+2013-01-15 12:21:02,331	params: ('name', None)
+2013-01-15 12:21:02,331	stdin: /proc/self/fd/0
+2013-01-15 12:21:02,331	stdout: /proc/self/fd/1
+2013-01-15 12:21:02,331	stderr: /proc/self/fd/2
+2013-01-15 12:21:02,331	executing hello task
+2013-01-15 12:21:06,906	moke (version 1.1.2)
+2013-01-15 12:21:06,906	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:21:06,907	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:21:06,907	task: sayhello
+2013-01-15 12:21:06,907	params: ('name', <class 'moke.core.RequiredArgument'>)
+2013-01-15 12:21:06,907	stdin: /proc/self/fd/0
+2013-01-15 12:21:06,907	stdout: /proc/self/fd/1
+2013-01-15 12:21:06,907	stderr: /proc/self/fd/2
+2013-01-15 12:21:06,907	executing hello task
+2013-01-15 12:23:41,862	moke (version 1.1.2)
+2013-01-15 12:23:41,862	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:23:41,863	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:23:41,863	task: sayhello
+2013-01-15 12:23:41,863	params: ('name', 'a')
+2013-01-15 12:23:41,863	stdin: /proc/self/fd/0
+2013-01-15 12:23:41,863	stdout: /proc/self/fd/1
+2013-01-15 12:23:41,863	stderr: /proc/self/fd/2
+2013-01-15 12:23:41,863	executing hello task
+2013-01-15 12:23:45,832	moke (version 1.1.2)
+2013-01-15 12:23:45,832	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:23:45,833	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:23:45,833	task: sayhello
+2013-01-15 12:23:45,833	params: ('name', 'a')
+2013-01-15 12:23:45,833	stdin: /proc/self/fd/0
+2013-01-15 12:23:45,833	stdout: /proc/self/fd/1
+2013-01-15 12:23:45,834	stderr: /proc/self/fd/2
+2013-01-15 12:23:45,834	executing hello task
+2013-01-15 12:23:47,084	moke (version 1.1.2)
+2013-01-15 12:23:47,084	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:23:47,084	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:23:47,084	task: sayhello
+2013-01-15 12:23:47,084	params: ('name', 'b')
+2013-01-15 12:23:47,084	stdin: /proc/self/fd/0
+2013-01-15 12:23:47,084	stdout: /proc/self/fd/1
+2013-01-15 12:23:47,084	stderr: /proc/self/fd/2
+2013-01-15 12:23:47,085	executing hello task
+2013-01-15 12:24:08,135	moke (version 1.1.2)
+2013-01-15 12:24:08,135	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:24:08,135	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:24:08,135	task: sayhello
+2013-01-15 12:24:08,135	params: ('name', 'b')
+2013-01-15 12:24:08,135	stdin: /proc/self/fd/0
+2013-01-15 12:24:08,136	stdout: /proc/self/fd/1
+2013-01-15 12:24:08,136	stderr: /proc/self/fd/2
+2013-01-15 12:24:08,136	executing hello task
+2013-01-15 12:26:10,372	moke (version 1.1.2)
+2013-01-15 12:26:10,372	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:26:10,372	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:26:10,372	task: sayhello
+2013-01-15 12:26:10,372	params: ('name', None)
+2013-01-15 12:26:10,372	stdin: /proc/self/fd/0
+2013-01-15 12:26:10,372	stdout: /proc/self/fd/1
+2013-01-15 12:26:10,372	stderr: /proc/self/fd/2
+2013-01-15 12:26:10,372	executing hello task
+2013-01-15 12:26:34,212	moke (version 1.1.2)
+2013-01-15 12:26:34,212	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:26:34,212	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:26:34,212	task: sayhello
+2013-01-15 12:26:34,212	params: ('name', None)
+2013-01-15 12:26:34,212	stdin: /proc/self/fd/0
+2013-01-15 12:26:34,212	stdout: /proc/self/fd/1
+2013-01-15 12:26:34,212	stderr: /proc/self/fd/2
+2013-01-15 12:26:34,212	executing hello task
+2013-01-15 12:27:10,874	moke (version 1.1.2)
+2013-01-15 12:27:10,874	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:27:10,874	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:27:10,874	task: sayhello
+2013-01-15 12:27:10,874	params: ('name', None)
+2013-01-15 12:27:10,874	stdin: /proc/self/fd/0
+2013-01-15 12:27:10,874	stdout: /proc/self/fd/1
+2013-01-15 12:27:10,874	stderr: /proc/self/fd/2
+2013-01-15 12:27:10,875	executing hello task
+2013-01-15 12:27:15,374	moke (version 1.1.2)
+2013-01-15 12:27:15,374	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:27:15,374	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:27:15,374	task: sayhello
+2013-01-15 12:27:15,374	params: ('name', None)
+2013-01-15 12:27:15,375	stdin: /proc/self/fd/0
+2013-01-15 12:27:15,375	stdout: /proc/self/fd/1
+2013-01-15 12:27:15,375	stderr: /proc/self/fd/2
+2013-01-15 12:27:15,375	executing hello task
+2013-01-15 12:31:58,143	moke (version 1.1.2)
+2013-01-15 12:31:58,143	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:31:58,143	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:31:58,143	task: sayhello
+2013-01-15 12:31:58,143	params: ('name', None)
+2013-01-15 12:31:58,143	stdin: /proc/self/fd/0
+2013-01-15 12:31:58,143	stdout: /proc/self/fd/1
+2013-01-15 12:31:58,143	stderr: /proc/self/fd/2
+2013-01-15 12:31:58,143	executing hello task
+2013-01-15 12:32:56,147	moke (version 1.1.2)
+2013-01-15 12:32:56,147	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:32:56,147	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:32:56,148	task: sayhello
+2013-01-15 12:32:56,148	params: ('name', 'aaa')
+2013-01-15 12:32:56,148	stdin: /proc/self/fd/0
+2013-01-15 12:32:56,148	stdout: /proc/self/fd/1
+2013-01-15 12:32:56,148	stderr: /proc/self/fd/2
+2013-01-15 12:32:56,148	executing hello task
+2013-01-15 12:32:59,281	moke (version 1.1.2)
+2013-01-15 12:32:59,282	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:32:59,282	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:32:59,282	task: sayhello
+2013-01-15 12:32:59,282	params: ('name', None)
+2013-01-15 12:32:59,282	stdin: /proc/self/fd/0
+2013-01-15 12:32:59,282	stdout: /proc/self/fd/1
+2013-01-15 12:32:59,282	stderr: /proc/self/fd/2
+2013-01-15 12:32:59,282	executing hello task
+2013-01-15 12:33:22,428	moke (version 1.1.2)
+2013-01-15 12:33:22,428	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:33:22,428	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:33:22,428	task: sayhello
+2013-01-15 12:33:22,428	params: ('name', 'name')
+2013-01-15 12:33:22,428	stdin: /proc/self/fd/0
+2013-01-15 12:33:22,428	stdout: /proc/self/fd/1
+2013-01-15 12:33:22,428	stderr: /proc/self/fd/2
+2013-01-15 12:33:22,428	executing hello task
+2013-01-15 12:33:37,622	moke (version 1.1.2)
+2013-01-15 12:33:37,622	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:33:37,622	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:33:37,622	task: sayhello
+2013-01-15 12:33:37,622	params: ('name', <class 'moke.core.RequiredArgument'>)
+2013-01-15 12:33:37,622	stdin: /proc/self/fd/0
+2013-01-15 12:33:37,622	stdout: /proc/self/fd/1
+2013-01-15 12:33:37,622	stderr: /proc/self/fd/2
+2013-01-15 12:33:37,622	executing hello task
+2013-01-15 12:33:59,943	moke (version 1.1.2)
+2013-01-15 12:33:59,943	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:33:59,943	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:33:59,943	task: sayhello
+2013-01-15 12:33:59,943	params: ('name', <class 'moke.core.RequiredArgument'>)
+2013-01-15 12:33:59,943	stdin: /proc/self/fd/0
+2013-01-15 12:33:59,943	stdout: /proc/self/fd/1
+2013-01-15 12:33:59,943	stderr: /proc/self/fd/2
+2013-01-15 12:33:59,943	executing hello task
+2013-01-15 12:46:30,686	moke (version 1.1.2)
+2013-01-15 12:46:30,686	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/required"
+2013-01-15 12:46:30,686	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/required/mokefile.py"
+2013-01-15 12:46:30,686	task: sayhello
+2013-01-15 12:46:30,686	params: ('name', 'none')
+2013-01-15 12:46:30,686	stdin: /proc/self/fd/0
+2013-01-15 12:46:30,687	stdout: /proc/self/fd/1
+2013-01-15 12:46:30,687	stderr: /proc/self/fd/2
+2013-01-15 12:46:30,687	executing hello task

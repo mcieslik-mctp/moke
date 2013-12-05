@@ -1,0 +1,75 @@
+2012-11-26 13:01:05,363	moke (version 1.1.0)
+2012-11-26 13:01:05,363	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:01:05,363	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:01:05,363	task: arg
+2012-11-26 13:01:05,363	params: ('name', 1)
+2012-11-26 13:01:07,011	moke (version 1.1.0)
+2012-11-26 13:01:07,011	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:01:07,011	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:01:07,011	task: arg
+2012-11-26 13:01:07,011	params: ('name', 1)
+2012-11-26 13:01:07,621	moke (version 1.1.0)
+2012-11-26 13:01:07,621	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:01:07,621	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:01:07,621	task: arg
+2012-11-26 13:01:07,621	params: ('name', 1)
+2012-11-26 13:01:08,140	moke (version 1.1.0)
+2012-11-26 13:01:08,140	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:01:08,140	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:01:08,140	task: arg
+2012-11-26 13:01:08,140	params: ('name', 1)
+2012-11-26 13:01:08,683	moke (version 1.1.0)
+2012-11-26 13:01:08,683	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:01:08,683	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:01:08,683	task: arg
+2012-11-26 13:01:08,683	params: ('name', 1)
+2012-11-26 13:01:31,741	moke (version 1.1.0)
+2012-11-26 13:01:31,741	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:01:31,741	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:01:31,741	task: arg
+2012-11-26 13:01:31,741	params: ('name', 1)
+2012-11-26 13:01:49,978	moke (version 1.1.0)
+2012-11-26 13:01:49,979	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:01:49,979	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:01:49,979	task: arg
+2012-11-26 13:01:49,979	params: ('name', '1')
+2012-11-26 13:02:02,062	moke (version 1.1.0)
+2012-11-26 13:02:02,062	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:02:02,062	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:02:02,062	task: arg
+2012-11-26 13:02:02,062	params: ('name', 1.0)
+2012-11-26 13:02:56,025	moke (version 1.1.0)
+2012-11-26 13:02:56,025	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:02:56,025	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:02:56,025	task: nodef_float
+2012-11-26 13:02:56,025	params: ('name', 1.0)
+2012-11-26 13:02:59,342	moke (version 1.1.0)
+2012-11-26 13:02:59,343	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:02:59,343	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:02:59,343	task: nodef_path
+2012-11-26 13:02:59,343	params: ('name', '1')
+2012-11-26 13:04:02,014	moke (version 1.1.0)
+2012-11-26 13:04:02,014	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:04:02,014	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:04:02,014	task: nodef_path
+2012-11-26 13:04:02,014	params: ('name', path('1'))
+2012-11-26 13:05:10,634	moke (version 1.1.0)
+2012-11-26 13:05:10,634	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:05:10,634	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:05:10,634	task: nodef_path
+2012-11-26 13:05:10,634	params: ('name', path('1'))
+2012-11-26 13:05:14,092	moke (version 1.1.0)
+2012-11-26 13:05:14,092	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:05:14,092	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:05:14,092	task: nodef_float
+2012-11-26 13:05:14,092	params: ('name', 1.0)
+2012-11-26 13:07:34,330	moke (version 1.1.0)
+2012-11-26 13:07:34,330	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:07:34,330	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:07:34,330	task: none_float
+2012-11-26 13:07:34,330	params: ('name', 1.0)
+2012-11-26 13:07:39,693	moke (version 1.1.0)
+2012-11-26 13:07:39,693	cwd: "/home/mpc4p/gyre/workspaces/python/moke/test/functional"
+2012-11-26 13:07:39,693	mokefile: "/home/mpc4p/gyre/workspaces/python/moke/test/functional/mokefile.py"
+2012-11-26 13:07:39,694	task: none_path
+2012-11-26 13:07:39,694	params: ('name', path('1'))
