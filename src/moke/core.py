@@ -9,7 +9,7 @@
 
 __all__ = ["MokeError", "task", "stdin", "stdout", "stderr", "num", "doc",
            "INFO", "WARN", "ERROR", "required"]
-__version__ = "1.1.5"
+__version__ = "1.1.6"
 
 
 import os

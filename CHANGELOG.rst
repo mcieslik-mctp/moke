@@ -1,7 +1,15 @@
 Changelog
 =========
 
+Version 1.1.6
+-------------
+
+  - clean-up, documentation fixes, and github import
+  - fixed devel.sh script  
+
+
 Version 1.1.5
+-------------
 
   - improved ``log_run`` verbosity 
 

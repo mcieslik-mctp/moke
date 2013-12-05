@@ -1,10 +1,12 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 NAME = "moke"
-VERSION = "1.1.5"
+VERSION = "1.1.6"
 
-import setuptools
-from distutils.core import setup
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
 
 CLASSIFIERS = [
     "Development Status :: 4 - Beta",
@@ -20,7 +22,7 @@ setup(
     description="moke is not like make",
     keywords="make, ant, rake, paver, build, shell, argparse, bash",
     author="Marcin Cieslik",
-    author_email="mpc4p@virginia.edu",
+    author_email="mcieslik-mctp@med.umich.edu",
     license="BSD License",
     long_description=open('README.rst', 'r').read(),
     classifiers=CLASSIFIERS,

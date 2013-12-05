@@ -78,10 +78,10 @@ Now it's time to start your own Mokefile::
 
   moke new [filename]
 
-Which creates a skeleton file for you:
+Which creates a skeleton file for you::
 	
-	$ moke new Mokefile
-	moke: *** Created /...path.../Mokefile
-	moke: *** Running 'moke Mokefile --help'
+  $ moke new Mokefile
+  moke: *** Created /...path.../Mokefile
+  moke: *** Running 'moke Mokefile --help'
 
 Have fun!
