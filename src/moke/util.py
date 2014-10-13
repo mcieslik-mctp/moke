@@ -16,6 +16,8 @@ import logging
 from path import path
 from tempfile import NamedTemporaryFile
 from subprocess import Popen, PIPE
+import multiprocessing as mp
+LOG = mp.get_logger()
 
 
 def chk_exit(status, cargo=None, always=False):
@@ -35,7 +37,7 @@ def chk_exit(status, cargo=None, always=False):
         sys.exit(status)
     return cargo
 
-def log(msg, level=logging.INFO):
+def log(msg, level=None):
     """
     Universal logging function.
     
@@ -45,8 +47,7 @@ def log(msg, level=logging.INFO):
       - level(``int``) logging level [default: INFO].
      
     """
-    lgr = logging.getLogger("moke")
-    lgr.log(level, msg)
+    LOG.log(level or mp.DEFAULT, msg)
     
 def run_app(cmd, args=None, stdin=None, **kwargs):
     """
@@ -78,15 +79,13 @@ def run_app(cmd, args=None, stdin=None, **kwargs):
     return (code, stdout, stderr, " ".join(args or (cmd,)))
 
 
-def log_run(code_stdout_stderr_cmd, silent=False):
+def log_run(code_stdout_stderr_cmd, pfx=""):
     code, stdout, stderr, cmd = code_stdout_stderr_cmd
+    so = ("%sshell[%s]: %s") % (pfx, code, cmd)
     if not code:
-        log("Success: %s" % cmd)
+        log(so, level=logging.DEFAULT)
     else:
-        log("Failure (code: %s): %s" % (code, cmd))
-    if not silent:
-        log("stdout: \n" + stdout)
-        log("stderr: \n" + stderr)
+        log(so, level=logging.ERROR)
     return code
 
 def sh(command, **kwargs):

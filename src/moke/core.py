@@ -16,6 +16,7 @@ import os
 import sys
 import inspect
 import logging
+import multiprocessing
 from re import search
 from path import path
 from itertools import izip_longest
@@ -35,12 +36,14 @@ class RequiredArgument(object):
 required = RequiredArgument
 
 __deflog__ = {"ls":stderr, # log stream
-              "ll":"info", # log level
+              "ll":"default", # log level
               "lf":"tab", # log format
              }
 
-__logforms__ = {"tab":"%(asctime)s\t%(message)s"
-                }
+__logforms__ = {
+    "tab":"%(asctime)s\t%(message)s",
+    "lvl":"%(levelname)s\t%(asctime)s\t%(message)s"
+}
 
 nan = float("nan")
 devnull = open(os.devnull, "wb")
@@ -137,10 +140,13 @@ class task(object):
                 finargs[key] = linargs[key]
         # prepare options
         logstream = finargs["stream"]
-        loglevel = getattr(logging, finargs["level"].upper())
+        try:
+            loglevel = getattr(logging, finargs["level"].upper())
+        except AttributeError:
+            loglevel = getattr(multiprocessing, finargs["level"].upper())
         logformat = __logforms__[finargs["format"]]
         # make logger
-        lgr = logging.getLogger("moke")
+        lgr = multiprocessing.get_logger()
         lgr.setLevel(loglevel)
         sh = logging.StreamHandler(stream=logstream)
         sh.setFormatter(logging.Formatter(logformat))
@@ -203,16 +209,17 @@ class task(object):
                                  help="(file_r) [default: %s] configuration file" % defcfg)
 
         main_parser.add_argument("-ls", type=file_a,
-            default=__deflog__["ls"],
-            help="(file_a) [default: %s] logging stream" % __deflog__["ls"].name)
+                                 default=__deflog__["ls"],
+                                 help="(file_a) [default: %s] logging stream" % __deflog__["ls"].name)
 
         main_parser.add_argument("-ll", type=str,
-            default=__deflog__["ll"], choices=("info", "warn", "error"),
-            help="(str) [default: %s] logging level" % __deflog__["ll"])
+                                 default=__deflog__["ll"], choices=("debug", "info", "subdefault", 
+                                                                    "default", "warn", "error"),
+                                 help="(str) [default: %s] logging level" % __deflog__["ll"])
 
         main_parser.add_argument("-lf", type=str,
-            default=__deflog__["lf"], choices=("tab",),
-            help="(str) [default: %s] logging format" % __deflog__["lf"])
+                                 default=__deflog__["lf"], choices=("tab","lvl"),
+                                 help="(str) [default: %s] logging format" % __deflog__["lf"])
 
 
         
@@ -309,39 +316,22 @@ class task(object):
         names, _, _, defs = inspect.getargspec(func)
         defs = (defs or ()) # defs can be None
         diff = len(names) - len(defs)
-
-        vals = []
+        # final set of function parameters
+        full_args = {}
         for i, name in enumerate(names):
             try:
-                vals.append(args[name])
+                full_args[name] = args[name]
             except KeyError:
-                vals.append(defs[i - diff])
-
-        params = " ".join(\
-                [str(tpl) for tpl in zip(names, vals)])
-
-
-        try:
-            # works on linux 3
-            stdin_name = os.readlink('/dev/stdin')
-            stdout_name = os.readlink('/dev/stdout')
-            stderr_name = os.readlink('/dev/stderr')
-
-        except:
-            stdin_name,stdout_name,stderr_name = "","",""
-            
+                full_args[name] = defs[i - diff]
         # write logging header
-        msgs = ("moke (version %s)" % __version__,
-                "cwd: \"%s\"" % cwd,
-                "mokefile: \"%s\"" % mokefile,
-                "task: %s" % func.func_name,
-                "params: %s" % params,
-                "stdin: %s" % stdin_name,
-                "stdout: %s" % stdout_name,
-                "stderr: %s" % stderr_name,
-        )
+        msgs = ("@moke;moke version: %s" % __version__,
+                "@moke;cwd: \"%s\"" % cwd,
+                "@moke;mokefile: \"%s\"" % mokefile,
+                "@moke;task: %s" % func.func_name,
+        ) + tuple("@moke;%s: %s" % (k,v) for (k,v) in sorted(full_args.items()))
+
         for msg in msgs:
-            lgr.info(msg)
+            lgr.log(23, msg)
         # final call, leaving moke
         return func(**args)
 
