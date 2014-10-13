@@ -1,6 +1,11 @@
 Changelog
 =========
 
+Version 1.1.7
+-------------
+  
+  - fixes in logging defaults
+
 Version 1.1.6
 -------------
 
