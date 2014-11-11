@@ -39,22 +39,18 @@ class RequiredArgument(object):
 
 required = RequiredArgument
 
-__deflog__ = {"ls":stderr, # log stream
+__deflog__ = {"ls":stderr,    # log stream
               "ll":"default", # log level
-              "lf":"tab", # log format
+              "lf":"nltm",    # log format
              }
 
 __logforms__ = {
-    "tab":"%(asctime)s\t%(message)s",
-    "lvl":"%(levelname)s\t%(asctime)s\t%(message)s",
-    "max":"%(name)s\t%(levelname)s\t%(asctime)s\t%(message)s"
+    "nltm":"%(name)s\t%(levelname)s\t%(asctime)s\t%(message)s"
 }
-
 
 
 nan = float("nan")
 devnull = open(os.devnull, "wb")
-
 
 # monkey patching now to have simpler code later
 file_w = FileType("wb")
@@ -113,7 +109,7 @@ class task(object):
     def _makelgr(args, cfg):
         # default arguments
         options = ("level", "stream", "format")
-        defargs = {"level":__deflog__["ll"],
+        defargs = {"level": __deflog__["ll"],
                    "stream":__deflog__["ls"],
                    "format":__deflog__["lf"]
                    }
@@ -131,7 +127,7 @@ class task(object):
                     cfgargs[name] = None
         # command line arguments
         # these are set to defaults by argparse
-        linargs = {"level":args.pop("ll"),
+        linargs = {"level": args.pop("ll"),
                    "stream":args.pop("ls"),
                    "format":args.pop("lf")
                    }
@@ -153,7 +149,7 @@ class task(object):
             loglevel = getattr(multiprocessing, finargs["level"].upper())
         logformat = __logforms__[finargs["format"]]
         # setup logger handler
-        lgr = logging.getLogger("moke")
+        lgr = logging.getLogger()
         lgr.setLevel(loglevel)
         sh = logging.StreamHandler(stream=logstream)
         sh.setFormatter(logging.Formatter(logformat))
@@ -225,7 +221,7 @@ class task(object):
                                  help="(str) [default: %s] logging level" % __deflog__["ll"])
 
         main_parser.add_argument("-lf", type=str,
-                                 default=__deflog__["lf"], choices=("tab","lvl","max"),
+                                 default=__deflog__["lf"], choices=("nltm",),
                                  help="(str) [default: %s] logging format" % __deflog__["lf"])
 
 
@@ -331,12 +327,11 @@ class task(object):
             except KeyError:
                 full_args[name] = defs[i - diff]
         # write logging header
-        msgs = ("@moke;moke version: %s" % __version__,
-                "@moke;cwd: \"%s\"" % cwd,
-                "@moke;mokefile: \"%s\"" % mokefile,
-                "@moke;task: %s" % func.func_name,
-        ) + tuple("@moke;%s: %s" % (k,v) for (k,v) in sorted(full_args.items()))
-        
+        msgs = ("moke version: %s" % __version__,
+                "cwd: \"%s\"" % cwd,
+                "mokefile: \"%s\"" % mokefile,
+                "task: %s" % func.func_name,
+        ) + tuple("%s: %s" % (k,v) for (k,v) in sorted(full_args.items()))
         lgr = logging.getLogger("moke")
         for msg in msgs:
             lgr.log(DEFAULT, msg)
