@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 NAME = "moke"
-VERSION = "1.1.7"
+VERSION = "1.1.8"
 
 try:
     from setuptools import setup
@@ -22,7 +22,8 @@ setup(
     description="moke is not like make",
     keywords="make, ant, rake, paver, build, shell, argparse, bash",
     author="Marcin Cieslik",
-    author_email="mcieslik-mctp@med.umich.edu",
+    author_email="mcieslik@med.umich.edu",
+    url='http://mcieslik-mctp.github.io/moke',
     license="BSD License",
     long_description=open('README.rst', 'r').read(),
     classifiers=CLASSIFIERS,

@@ -8,8 +8,8 @@
 """
 
 __all__ = ["MokeError", "task", "stdin", "stdout", "stderr", "num", "doc",
-           "INFO", "WARN", "ERROR", "required"]
-__version__ = "1.1.7"
+           "INFO", "DEFAULT" ,"WARN", "ERROR", "required"]
+__version__ = "1.1.8"
 
 
 import os
@@ -25,6 +25,10 @@ from types import TypeType
 from types import FileType as BaseFileType
 from ConfigParser import SafeConfigParser
 
+# logging
+DEFAULT = 23
+logging.addLevelName(DEFAULT, "DEFAULT")
+logging.DEFAULT = DEFAULT
 
 # do not remove, really
 from logging import INFO, WARN, ERROR
@@ -42,8 +46,11 @@ __deflog__ = {"ls":stderr, # log stream
 
 __logforms__ = {
     "tab":"%(asctime)s\t%(message)s",
-    "lvl":"%(levelname)s\t%(asctime)s\t%(message)s"
+    "lvl":"%(levelname)s\t%(asctime)s\t%(message)s",
+    "max":"%(name)s\t%(levelname)s\t%(asctime)s\t%(message)s"
 }
+
+
 
 nan = float("nan")
 devnull = open(os.devnull, "wb")
@@ -145,13 +152,13 @@ class task(object):
         except AttributeError:
             loglevel = getattr(multiprocessing, finargs["level"].upper())
         logformat = __logforms__[finargs["format"]]
-        # make logger
-        lgr = multiprocessing.get_logger()
+        # setup logger handler
+        lgr = logging.getLogger("moke")
         lgr.setLevel(loglevel)
         sh = logging.StreamHandler(stream=logstream)
         sh.setFormatter(logging.Formatter(logformat))
         lgr.addHandler(sh)
-        return lgr
+        
 
     @staticmethod
     def _parsetype(line):
@@ -218,7 +225,7 @@ class task(object):
                                  help="(str) [default: %s] logging level" % __deflog__["ll"])
 
         main_parser.add_argument("-lf", type=str,
-                                 default=__deflog__["lf"], choices=("tab","lvl"),
+                                 default=__deflog__["lf"], choices=("tab","lvl","max"),
                                  help="(str) [default: %s] logging format" % __deflog__["lf"])
 
 
@@ -309,7 +316,7 @@ class task(object):
         mokefile = os.path.abspath(os.path.join(cwd, sys.argv[0]))
         # get config and logger
         cfg = cls._makecfg(args)
-        lgr = cls._makelgr(args, cfg)
+        cls._makelgr(args, cfg)
         # the function
         func = args.pop("func")
         # remember default and command line args
@@ -329,9 +336,10 @@ class task(object):
                 "@moke;mokefile: \"%s\"" % mokefile,
                 "@moke;task: %s" % func.func_name,
         ) + tuple("@moke;%s: %s" % (k,v) for (k,v) in sorted(full_args.items()))
-
+        
+        lgr = logging.getLogger("moke")
         for msg in msgs:
-            lgr.log(23, msg)
+            lgr.log(DEFAULT, msg)
         # final call, leaving moke
         return func(**args)
 

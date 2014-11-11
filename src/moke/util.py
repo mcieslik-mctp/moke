@@ -16,8 +16,6 @@ import logging
 from path import path
 from tempfile import NamedTemporaryFile
 from subprocess import Popen, PIPE
-import multiprocessing as mp
-LOG = mp.get_logger()
 
 
 def chk_exit(status, cargo=None, always=False):
@@ -37,7 +35,7 @@ def chk_exit(status, cargo=None, always=False):
         sys.exit(status)
     return cargo
 
-def log(msg, level=None):
+def log(msg, level=None, logger=None):
     """
     Universal logging function.
     
@@ -47,7 +45,9 @@ def log(msg, level=None):
       - level(``int``) logging level [default: INFO].
      
     """
-    LOG.log(level or mp.DEFAULT, msg)
+    if not logger:
+        logger = logging.getLogger("moke")
+    logger.log(level or logging.DEFAULT, msg)
     
 def run_app(cmd, args=None, stdin=None, **kwargs):
     """
