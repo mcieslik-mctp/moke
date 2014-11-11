@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 1.1.9
+-------------
+  
+  - simplify logging defaults
+
+
 Version 1.1.8
 -------------
   
