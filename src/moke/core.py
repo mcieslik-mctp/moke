@@ -9,7 +9,7 @@
 
 __all__ = ["MokeError", "task", "stdin", "stdout", "stderr", "num", "doc",
            "INFO", "DEFAULT" ,"WARN", "ERROR", "required"]
-__version__ = "1.1.9"
+__version__ = "1.1.10"
 
 
 import os
@@ -204,9 +204,7 @@ class task(object):
         main_parser = ArgumentParser(description=doc)
 
         # global options
-        defcfg = sys.argv[0].replace(".py", ".ini")
-        if not os.path.exists(defcfg):
-            open(defcfg, "w").close()
+        defcfg = os.path.join(os.path.dirname(__file__), "data", "mokefile.ini")
 
         main_parser.add_argument("-config", type=file_r, default=defcfg, 
                                  help="(file_r) [default: %s] configuration file" % defcfg)

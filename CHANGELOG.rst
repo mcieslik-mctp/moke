@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 1.1.10
+-------------
+  
+  - minor bug fixes
+   
+
 Version 1.1.9
 -------------
   
