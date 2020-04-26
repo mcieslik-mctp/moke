@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 from moke import * #@UnusedWildImport
 
 @task
@@ -6,28 +6,28 @@ def nodef_float(name):
     """
     - name(``float``)
     """
-    print type(name)
+    print(type(name))
 
 @task
 def nodef_path(name):
     """
     - name(``path``)
     """
-    print type(name)
+    print(type(name))
 
 @task
 def none_float(name=None):
     """
     - name(``float``)
     """
-    print type(name)
+    print(type(name))
 
 @task
 def none_path(name=None):
     """
     - name(``path``)
     """
-    print type(name)
+    print(type(name))
 
     
 

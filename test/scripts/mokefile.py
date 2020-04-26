@@ -1,4 +1,5 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
+from io import IOBase as BaseFileType
 from moke import *
 import sys
 
@@ -12,12 +13,12 @@ def fromdef_float(i=1.):
 
 @task
 def fromdef_path_r(i=stdin):
-    assert type(i) == file
+    assert issubclass(type(i), BaseFileType)
     assert i.mode == "r", i.mode
 
 @task
 def fromdef_path_w(i=stdout):
-    assert type(i) == file
+    assert issubclass(type(i), BaseFileType)
     assert i.mode == "w"
 
 @task
@@ -126,7 +127,7 @@ def greet(who, shout=False, times=1):
     greetings = ("Hello %s and %s!\n" % (who[0], who[1])) * times
     if shout:
         greetings = greetings.upper()
-    print greetings.strip()
+    print(greetings.strip())
     log("greeted: %s and %s" % (who[0], who[1]), INFO)
 
     

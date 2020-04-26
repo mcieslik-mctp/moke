@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Tests for ``moke.core``
@@ -23,7 +23,7 @@ class Test_util(unittest.TestCase):
         os.chdir("..")
         ret, out, err, cmd =  run_app("../bin/moke")
         assert ret == 1
-        assert out == ""
+        assert out == b""
         assert err
         assert cmd == "../bin/moke"
         os.chdir("scripts")
@@ -32,42 +32,43 @@ class Test_util(unittest.TestCase):
         ret, out, err, cmd =  run_app("../../bin/moke")
         assert ret == 2
         assert cmd == "../../bin/moke"
-        assert out == ""
+        assert out == b""
         assert err
 
     def test_run2(self):
         ret, out, err, cmd = run_app("../../bin/moke")
         assert ret == 2
-        assert out == ""
-        assert "usage: mokefile.py" in err
+        assert out == b""
+        assert b"usage: mokefile.py" in err
         assert cmd == "../../bin/moke"
 
     def test_grop1(self):
         ret, out, err, cmd = run_app("./grop.py")
         assert ret == 2
-        assert out == ""
-        assert "usage: grop.py" in err
+        assert out == b""
+        assert b"usage: grop.py" in err
         assert cmd == './grop.py'
 
     def test_grop2(self):
         ret, out, err, cmd = run_app('cat ../data/grop.inp | ./grop.py ".*\(\d{2}\).*"')
-        assert out == "a line with a number (42)\n"
+        assert out == b"a line with a number (42)\n"
         assert ret == 0
 
     def test_grop1(self):
         ret, out, err, cmd = run_app("./grop.py")
         assert ret == 2
-        assert out == ""
-        assert "usage: grop.py" in err
+        assert out == b""
+        assert b"usage: grop.py" in err
         assert cmd == './grop.py'
 
     def test_grop2(self):
         ret, out, err, cmd = run_app('cat ../data/grop.inp | ./grop.py ".*\(\d{2}\).*"')
-        assert out == "a line with a number (42)\n"
+        assert out == b"a line with a number (42)\n"
         assert ret == 0
 
     def test_mf1(self):
         ret, out, err, cmd =  run_app("moke fromdef_int")
+        print(err)
         assert ret == 0
 
     def test_mf2(self):
@@ -85,6 +86,7 @@ class Test_util(unittest.TestCase):
     def test_mf4(self):
         ret, out, err, cmd =  run_app("moke fromdoc_none_int -i 10")
         assert ret == 0, err
+
     def test_mf1(self):
         ret, out, err, cmd =  run_app("moke fromdef_int")
         assert ret == 0
@@ -97,15 +99,13 @@ class Test_util(unittest.TestCase):
         ret, out, err, cmd =  run_app("echo 1 | moke fromdef_path_r")
         assert ret == 0
         
-    def test_mf3(self):
+    def test_mf4(self):
         ret, out, err, cmd =  run_app("echo 1 | moke fromdef_path_w")
         assert ret == 0
 
-    def test_mf4(self):
+    def test_mf5(self):
         ret, out, err, cmd =  run_app("../../bin/moke fromdoc_none_int -i 10")
         assert ret == 0, err
-
-
         
         
 if __name__ == "__main__":

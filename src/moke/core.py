@@ -9,7 +9,7 @@
 
 __all__ = ["MokeError", "task", "stdin", "stdout", "stderr", "num", "doc",
            "INFO", "DEFAULT" ,"WARN", "ERROR", "required"]
-__version__ = "1.1.10"
+__version__ = "1.2.0"
 
 
 import os
@@ -18,12 +18,11 @@ import inspect
 import logging
 import multiprocessing
 from re import search
-from path import path
-from itertools import izip_longest
+from .path import path
+from itertools import zip_longest
 from argparse import ArgumentParser, FileType, SUPPRESS
-from types import TypeType
-from types import FileType as BaseFileType
-from ConfigParser import SafeConfigParser
+from io import IOBase as BaseFileType
+from configparser import SafeConfigParser
 
 # logging
 DEFAULT = 23
@@ -50,14 +49,14 @@ __logforms__ = {
 
 
 nan = float("nan")
-devnull = open(os.devnull, "wb")
+devnull = open(os.devnull, "wt")
 
 # monkey patching now to have simpler code later
-file_w = FileType("wb")
+file_w = FileType("wt")
 file_w.__dict__["__name__"] = "file_w"
-file_r = FileType("rb")
+file_r = FileType("rt")
 file_r.__dict__["__name__"] = "file_r"
-file_a = FileType("a+")
+file_a = FileType("at")
 file_a.__dict__["__name__"] = "file_a"
 
 # automatic import of mokelib
@@ -102,7 +101,7 @@ class task(object):
     def _makecfg(args):
         cfg = args.pop("config")
         parser = SafeConfigParser()
-        parser.readfp(cfg)
+        parser.read_file(cfg)
         return parser
 
     @staticmethod
@@ -170,7 +169,7 @@ class task(object):
             sometype = eval(sometype)
         except (NameError, SyntaxError):
             return None
-        if not (issubclass(type(sometype), TypeType) or \
+        if not (issubclass(type(sometype), type) or \
                 isinstance(sometype, FileType) or sometype is num):
             return None
         # fix empty string
@@ -226,7 +225,7 @@ class task(object):
         
         # subcommand options
         sub_parsers = None
-        for name, func in cls.__funcs.iteritems():
+        for name, func in cls.__funcs.items():
             args, varargs, varkwargs, defaults = inspect.getargspec(func)
             if varargs or varkwargs:
                 raise MokeError("*args and **kwargs not supported in tasks")
@@ -244,7 +243,8 @@ class task(object):
                 task_parser.description = "\n".join(doclines)
             else:
                 if not sub_parsers:
-                    sub_parsers = main_parser.add_subparsers()
+                    sub_parsers = main_parser.add_subparsers(dest="func")
+                    sub_parsers.required = True
                 task_parser = sub_parsers.add_parser(name, help="\n".join(doclines))
             
             task_parser.set_defaults(func = func)
@@ -257,7 +257,7 @@ class task(object):
                 optional = ()
                 defaults = ()
             
-            for arg, deft in izip_longest(optional, defaults):
+            for arg, deft in zip_longest(optional, defaults):
                 docline, argtype, nargs = cls._parsearg(arglines, arg)
                 if deft is False:
                     if not docline:
@@ -328,7 +328,7 @@ class task(object):
         msgs = ("moke version: %s" % __version__,
                 "cwd: \"%s\"" % cwd,
                 "mokefile: \"%s\"" % mokefile,
-                "task: %s" % func.func_name,
+                "task: %s" % func.__name__,
         ) + tuple("%s: %s" % (k,v) for (k,v) in sorted(full_args.items()))
         lgr = logging.getLogger("moke")
         for msg in msgs:
@@ -342,7 +342,7 @@ class task(object):
         parser = cls._funcparse(doc)
         try:
             args = dict(parser.parse_args().__dict__)
-        except Exception, e:
+        except Exception as e:
             sys.exit(e)
         retval = cls._callfunc(args) # modifies args
         return retval

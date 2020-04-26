@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 from moke import *
 import sys
 
@@ -98,7 +98,7 @@ def filew(opt=stdout):
     """
     opt(file_w) A file to write
     """
-    print repr(opt)
+    print(repr(opt))
 
 
 @task
@@ -127,7 +127,7 @@ def greet(who, shout=False, times=1):
     greetings = ("Hello %s and %s!\n" % (who[0], who[1])) * times
     if shout:
         greetings = greetings.upper()
-    print greetings
+    print(greetings)
     
 if __name__ == "__main__":
     task()

@@ -1,37 +1,34 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 NAME = "moke"
-VERSION = "1.1.10"
+VERSION = "1.2.0"
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup
 
 CLASSIFIERS = [
     "Development Status :: 4 - Beta",
     "Operating System :: OS Independent",
     "Intended Audience :: Developers",
-    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3",
     "License :: OSI Approved :: BSD License"
-    ]
+]
 
 setup(
     name=NAME.lower(),
     version=VERSION,
-    description="moke is not like make",
-    keywords="make, ant, rake, paver, build, shell, argparse, bash",
     author="Marcin Cieslik",
     author_email="mcieslik@med.umich.edu",
-    url='http://mcieslik-mctp.github.io/moke',
-    license="BSD License",
+    description="moke is not like make",
+    keywords="make, ant, rake, paver, build, shell, argparse, bash",
     long_description=open('README.rst', 'r').read(),
-    classifiers=CLASSIFIERS,
+    long_description_content_type="text/x-rst",
+    url='http://mcieslik-mctp.github.io/moke',
     packages = ["moke"],
     package_dir = {"": "src"},
     package_data = {"moke": ["data/*"]},
     scripts = ["bin/moke"],
-    # Options
     include_package_data=True,
     zip_safe=False,
-    )
+    license="BSD License",
+    classifiers=CLASSIFIERS,
+    python_requires='>=3.6',
+)

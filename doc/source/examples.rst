@@ -13,7 +13,7 @@ is possible to rename it and call it directly.::
 
 This requires shebang line::
 
-  #!/usr/bin/env python2.7
+  #!/usr/bin/env python3
 
 If your ``mokefile.py`` contains only a single task call the function ``main``
 and you will be able to omit ``<task>`` from the call::
@@ -23,7 +23,7 @@ and you will be able to omit ``<task>`` from the call::
 The tiny ``grop.py`` example included in the test-suite is a tiny replacement
 for ``grep``.
 
-.. literalinclude:: ../test/scripts/grop.py
+.. literalinclude:: ../../test/scripts/grop.py
 
 
 Example usage (in the ``test`` directory)::

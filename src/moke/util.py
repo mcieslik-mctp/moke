@@ -13,7 +13,7 @@ __all__ = ["chk", "chk_exist", "chk_exit", "chk_pth", "chk_type", "chks",
 import os
 import sys
 import logging
-from path import path
+from .path import path
 from tempfile import NamedTemporaryFile
 from subprocess import Popen, PIPE
 
@@ -204,5 +204,5 @@ def mkdir(path):
     """
     try:
         path.mkdir_p()
-    except OSError, _:
+    except OSError as _:
         path.makedirs_p()
