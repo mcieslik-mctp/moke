@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>moke is not like make &mdash; moke 1.1.9 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="moke 1.1.9 documentation" href="#" />
+    <link rel="next" title="Conventions" href="conventions.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="conventions.html" title="Conventions"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">moke 1.1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="moke-is-not-like-make">
+<h1><tt class="docutils literal"><span class="pre">moke</span></tt> is not like <tt class="docutils literal"><span class="pre">make</span></tt><a class="headerlink" href="#moke-is-not-like-make" title="Permalink to this headline">¶</a></h1>
+<p><tt class="docutils literal"><span class="pre">moke</span></tt> makes writing command line applications easy and fast.</p>
+<p>A command line application that greets exactly two persons. (put the following
+into a file called <tt class="docutils literal"><span class="pre">mokefile.py</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">moke</span> <span class="kn">import</span> <span class="n">task</span><span class="p">,</span> <span class="n">log</span>
+
+<span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">who</span><span class="p">,</span> <span class="n">shout</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sends greetings from moke.</span>
+
+<span class="sd">     - who(str2) two persons to greet</span>
+<span class="sd">     - shout(switch) triggers CAPS</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">greetings</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;Hello </span><span class="si">%s</span><span class="s"> and </span><span class="si">%s</span><span class="s">!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">who</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">who</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">*</span> <span class="n">times</span>
+    <span class="k">if</span> <span class="n">shout</span><span class="p">:</span>
+        <span class="n">greetings</span> <span class="o">=</span> <span class="n">greetings</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">greetings</span>
+    <span class="n">log</span><span class="p">(</span><span class="s">&quot;greeted: </span><span class="si">%s</span><span class="s"> and </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">who</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">who</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">INFO</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;main&quot;</span><span class="p">:</span>
+    <span class="n">task</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Execute the mokefile by calling <tt class="docutils literal"><span class="pre">moke</span></tt></p>
+<div class="highlight-bash"><div class="highlight"><pre>moke greet --shout -times 2 Mary Kate
+</pre></div>
+</div>
+<p>this returns:</p>
+<div class="highlight-python"><div class="highlight"><pre>2011-09-30 14:12:52,815 moke (version 1.0.0)
+2011-09-30 14:12:52,815 cwd: &quot;/home/.../moke/test/scripts&quot;
+2011-09-30 14:12:52,815 mokefile: &quot;/home/.../moke/test/scripts/mokefile.py&quot;
+2011-09-30 14:12:52,815 task: greet
+2011-09-30 14:12:52,815 params: (&#39;who&#39;, [&#39;Mary&#39;, &#39;Kate&#39;]) (&#39;shout&#39;, True) (&#39;times&#39;, 2)
+HELLO MARY AND KATE!
+HELLO MARY AND KATE!
+</pre></div>
+</div>
+<p>If you forgot what your <tt class="docutils literal"><span class="pre">mokefile.py</span></tt> does, just ask for help:</p>
+<div class="highlight-python"><div class="highlight"><pre>moke --help
+
+usage: mokefile.py [-h] [-ls LS] [-ll {info,warn,error}] [-lf {tab}]
+  {greet} ...
+
+positional arguments:
+  {greet}
+    greet               Sends greetings from moke.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -ls LS                (file_a) [default: &lt;stderr&gt;] logging stream
+  -ll {info,warn,error}
+                        (str) [default: info] logging level
+  -lf {tab}             (str) [default: tab] logging format
+</pre></div>
+</div>
+<p>Sub-command specific help is also generated:</p>
+<div class="highlight-python"><div class="highlight"><pre>moke greet --help
+
+usage: mokefile.py greet [-h] [--shout] [-times TIMES] who who
+
+positional arguments:
+  who           (str) two persons to greet
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --shout       (switch) triggers CAPS
+  -times TIMES  (int) [default: 1]
+</pre></div>
+</div>
+<p>Have fun!</p>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#stand-alone-command-line-apps">Stand-alone command line apps</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">moke</span></tt> is not like <tt class="docutils literal"><span class="pre">make</span></tt></a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="conventions.html"
+                        title="next chapter">Conventions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="conventions.html" title="Conventions"
+             >next</a> |</li>
+        <li><a href="#">moke 1.1.9 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Marcin Cieslik.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
