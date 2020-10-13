@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 1.1.11
+-------------
+  
+  - pass-forward config args support
+
+
 Version 1.1.10
 -------------
   

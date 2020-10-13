@@ -9,7 +9,7 @@
 
 __all__ = ["MokeError", "task", "stdin", "stdout", "stderr", "num", "doc",
            "INFO", "DEFAULT" ,"WARN", "ERROR", "required"]
-__version__ = "1.1.10"
+__version__ = "1.1.11"
 
 
 import os
@@ -100,6 +100,7 @@ class task(object):
 
     @staticmethod
     def _makecfg(args):
+        args.pop("cargs")
         cfg = args.pop("config")
         parser = SafeConfigParser()
         parser.readfp(cfg)
@@ -209,6 +210,9 @@ class task(object):
         main_parser.add_argument("-config", type=file_r, default=defcfg, 
                                  help="(file_r) [default: %s] configuration file" % defcfg)
 
+        main_parser.add_argument("-cargs", type=str, default="", 
+                                help="(str) [default: ''] configuration file over-rides")
+        
         main_parser.add_argument("-ls", type=file_a,
                                  default=__deflog__["ls"],
                                  help="(file_a) [default: %s] logging stream" % __deflog__["ls"].name)
@@ -221,8 +225,6 @@ class task(object):
         main_parser.add_argument("-lf", type=str,
                                  default=__deflog__["lf"], choices=("nltm",),
                                  help="(str) [default: %s] logging format" % __deflog__["lf"])
-
-
         
         # subcommand options
         sub_parsers = None
