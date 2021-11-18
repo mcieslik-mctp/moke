@@ -57,21 +57,7 @@ else:
     except ImportError:
         pwd = None
 
-# Pre-2.3 support.  Are unicode filenames supported?
 _base = str
-_getcwd = os.getcwd
-try:
-    if os.path.supports_unicode_filenames:
-        _base = unicode
-        _getcwd = os.getcwdu
-except AttributeError:
-    pass
-
-# Pre-2.3 workaround for basestring.
-try:
-    basestring
-except NameError:
-    basestring = (str, unicode)
 
 # Universal newline support
 _textmode = 'U'
@@ -104,7 +90,7 @@ class path(_base):
         return self.__class__(resultStr)
 
     def __radd__(self, other):
-        if isinstance(other, basestring):
+        if isinstance(other, (str, bytes)):
             return self.__class__(other.__add__(self))
         else:
             return NotImplemented
@@ -130,7 +116,7 @@ class path(_base):
 
     def getcwd(cls):
         """ Return the current working directory as a path object. """
-        return cls(_getcwd())
+        return cls(os.getcwd())
     getcwd = classmethod(getcwd)
 
 
@@ -654,7 +640,7 @@ class path(_base):
         conversion.
 
         """
-        if isinstance(text, unicode):
+        if isinstance(text, str):
             if linesep is not None:
                 # Convert all standard end-of-line sequences to
                 # ordinary newline characters.
@@ -746,7 +732,7 @@ class path(_base):
         f = self.open(mode)
         try:
             for line in lines:
-                isUnicode = isinstance(line, unicode)
+                isUnicode = isinstance(line, str)
                 if linesep is not None:
                     # Strip off any existing line-end and add the
                     # specified linesep string.
@@ -916,23 +902,23 @@ class path(_base):
 
     # --- Create/delete operations on directories
 
-    def mkdir(self, mode=0777):
+    def mkdir(self, mode=0o777):
         os.mkdir(self, mode)
 
-    def mkdir_p(self, mode=0777):
+    def mkdir_p(self, mode=0o777):
         try:
             self.mkdir(mode)
-        except OSError, e:
+        except OSError as e:
             if e.errno != errno.EEXIST:
                 raise
 
-    def makedirs(self, mode=0777):
+    def makedirs(self, mode=0o777):
         os.makedirs(self, mode)
 
-    def makedirs_p(self, mode=0777):
+    def makedirs_p(self, mode=0o777):
         try:
             self.makedirs(mode)
-        except OSError, e:
+        except OSError as e:
             if e.errno != errno.EEXIST:
                 raise
 
@@ -942,7 +928,7 @@ class path(_base):
     def rmdir_p(self):
         try:
             self.rmdir()
-        except OSError, e:
+        except OSError as e:
             if e.errno != errno.ENOTEMPTY and e.errno != errno.EEXIST:
                 raise
 
@@ -952,7 +938,7 @@ class path(_base):
     def removedirs_p(self):
         try:
             self.removedirs()
-        except OSError, e:
+        except OSError as e:
             if e.errno != errno.ENOTEMPTY and e.errno != errno.EEXIST:
                 raise
 
@@ -962,7 +948,7 @@ class path(_base):
         """ Set the access/modified times of this file to the current time.
         Create the file if it does not exist.
         """
-        fd = os.open(self, os.O_WRONLY | os.O_CREAT, 0666)
+        fd = os.open(self, os.O_WRONLY | os.O_CREAT, 0o666)
         os.close(fd)
         os.utime(self, None)
 
@@ -972,7 +958,7 @@ class path(_base):
     def remove_p(self):
         try:
             self.unlink()
-        except OSError, e:
+        except OSError as e:
             if e.errno != errno.ENOENT:
                 raise
 

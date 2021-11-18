@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 1.2.0
+-------------
+  
+  - transition to python 3.6
+
+
 Version 1.1.11
 -------------
   

@@ -9,21 +9,20 @@
 
 __all__ = ["MokeError", "task", "stdin", "stdout", "stderr", "num", "doc",
            "INFO", "DEFAULT" ,"WARN", "ERROR", "required"]
-__version__ = "1.1.11"
+__version__ = "1.2.0"
 
 
+import io
 import os
 import sys
 import inspect
 import logging
 import multiprocessing
 from re import search
-from path import path
-from itertools import izip_longest
+from .path import path
+from itertools import zip_longest
 from argparse import ArgumentParser, FileType, SUPPRESS
-from types import TypeType
-from types import FileType as BaseFileType
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 
 # logging
 DEFAULT = 23
@@ -103,7 +102,7 @@ class task(object):
         args.pop("cargs")
         cfg = args.pop("config")
         parser = SafeConfigParser()
-        parser.readfp(cfg)
+        parser.read(cfg.name)
         return parser
 
     @staticmethod
@@ -171,7 +170,7 @@ class task(object):
             sometype = eval(sometype)
         except (NameError, SyntaxError):
             return None
-        if not (issubclass(type(sometype), TypeType) or \
+        if not (issubclass(type(sometype), type) or \
                 isinstance(sometype, FileType) or sometype is num):
             return None
         # fix empty string
@@ -206,7 +205,6 @@ class task(object):
 
         # global options
         defcfg = os.path.join(os.path.dirname(__file__), "data", "mokefile.ini")
-
         main_parser.add_argument("-config", type=file_r, default=defcfg, 
                                  help="(file_r) [default: %s] configuration file" % defcfg)
 
@@ -228,7 +226,7 @@ class task(object):
         
         # subcommand options
         sub_parsers = None
-        for name, func in cls.__funcs.iteritems():
+        for name, func in cls.__funcs.items():
             args, varargs, varkwargs, defaults = inspect.getargspec(func)
             if varargs or varkwargs:
                 raise MokeError("*args and **kwargs not supported in tasks")
@@ -247,6 +245,9 @@ class task(object):
             else:
                 if not sub_parsers:
                     sub_parsers = main_parser.add_subparsers()
+                    sub_parsers.required = True
+                    sub_parsers.dest = "command"
+                    
                 task_parser = sub_parsers.add_parser(name, help="\n".join(doclines))
             
             task_parser.set_defaults(func = func)
@@ -259,7 +260,7 @@ class task(object):
                 optional = ()
                 defaults = ()
             
-            for arg, deft in izip_longest(optional, defaults):
+            for arg, deft in zip_longest(optional, defaults):
                 docline, argtype, nargs = cls._parsearg(arglines, arg)
                 if deft is False:
                     if not docline:
@@ -279,7 +280,7 @@ class task(object):
                         arg = "-" + arg
                         if deft is not None:
                             argtype = type(deft)
-                        if argtype is BaseFileType:
+                        if argtype is io.IOBase:
                             # stdin, stdout or an open file
                             argtype = eval("file_" + deft.mode[0])
 
@@ -315,6 +316,7 @@ class task(object):
         cls._makelgr(args, cfg)
         # the function
         func = args.pop("func")
+        args.pop("command", None)
         # remember default and command line args
         names, _, _, defs = inspect.getargspec(func)
         defs = (defs or ()) # defs can be None
@@ -330,7 +332,7 @@ class task(object):
         msgs = ("moke version: %s" % __version__,
                 "cwd: \"%s\"" % cwd,
                 "mokefile: \"%s\"" % mokefile,
-                "task: %s" % func.func_name,
+                "task: %s" % func.__name__,
         ) + tuple("%s: %s" % (k,v) for (k,v) in sorted(full_args.items()))
         lgr = logging.getLogger("moke")
         for msg in msgs:
@@ -344,7 +346,7 @@ class task(object):
         parser = cls._funcparse(doc)
         try:
             args = dict(parser.parse_args().__dict__)
-        except Exception, e:
+        except Exception as e:
             sys.exit(e)
         retval = cls._callfunc(args) # modifies args
         return retval

@@ -1,7 +1,7 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 NAME = "moke"
-VERSION = "1.1.11"
+VERSION = "1.2.0"
 
 try:
     from setuptools import setup
@@ -12,7 +12,7 @@ CLASSIFIERS = [
     "Development Status :: 4 - Beta",
     "Operating System :: OS Independent",
     "Intended Audience :: Developers",
-    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3",
     "License :: OSI Approved :: BSD License"
     ]
 
