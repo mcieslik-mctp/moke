@@ -1,6 +1,11 @@
 Changelog
 =========
 
+Version 1.2.1
+-------------
+  
+  - fix for python 3.6
+
 Version 1.2.0
 -------------
   

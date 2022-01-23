@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 NAME = "moke"
-VERSION = "1.2.0"
+VERSION = "1.2.1"
 
 try:
     from setuptools import setup
