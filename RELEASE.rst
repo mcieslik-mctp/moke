@@ -4,13 +4,17 @@ Release
   - update moke.core.__version__
   - update setup.py version
   - update CHANGELOG.rst
+  - python3 setup.py sdist
+  - twine upload dst/moke-xxx.tar.gz
+
+Documentation
+-------------
+
   - update doc/source/conf.py
   - regenerate docs/html
   - push docs/html to gh-pages
   - push moke to github
-  - python setup.py sdist upload
     
-  
 TODO
 ----
 
