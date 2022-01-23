@@ -126,9 +126,9 @@ def tmp_file(filepath=None, overwrite=False, suffix=None):
     if filepath:
         if os.path.exists(filepath) and not overwrite:
             raise ValueError('The path: %s exists!' % filepath)
-        fh = open(filepath, 'w+b')
+        fh = open(filepath, 'w+')
     else:
-        fh = NamedTemporaryFile(suffix=suffix)
+        fh = NamedTemporaryFile(mode='w+', suffix=suffix)
     return fh
 
 def istrue(cond, msg):
