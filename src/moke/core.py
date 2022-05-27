@@ -280,7 +280,7 @@ class task(object):
                         arg = "-" + arg
                         if deft is not None:
                             argtype = type(deft)
-                        if argtype is io.IOBase:
+                        if argtype is io.TextIOWrapper:
                             # stdin, stdout or an open file
                             argtype = eval("file_" + deft.mode[0])
 
