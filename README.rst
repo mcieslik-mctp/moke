@@ -22,10 +22,9 @@ into a file called ``mokefile.py``::
       greetings = ("Hello %s and %s!" % (who[0], who[1])) * times
       if shout:
           greetings = greetings.upper()
-      print greetings
       log("greeted: %s and %s" % (who[0], who[1]), INFO)
 
-  if __name__ == "main":
+  if __name__ == "__main__":
       task()
 
 Execute the mokefile by calling ``moke``::
