@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 1.2.2
+-------------
+  
+  - more fixes for python 3
+
+
 Version 1.2.1
 -------------
   

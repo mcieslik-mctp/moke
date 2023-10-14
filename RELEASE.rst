@@ -5,7 +5,7 @@ Release
   - update setup.py version
   - update CHANGELOG.rst
   - python3 setup.py sdist
-  - twine upload dst/moke-xxx.tar.gz
+  - twine upload dist/moke-xxx.tar.gz
 
 Documentation
 -------------
