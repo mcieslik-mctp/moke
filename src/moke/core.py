@@ -247,8 +247,7 @@ class task(object):
                     sub_parsers = main_parser.add_subparsers()
                     sub_parsers.required = True
                     sub_parsers.dest = "command"
-                    
-                task_parser = sub_parsers.add_parser(name, help="\n".join(doclines))
+                task_parser = sub_parsers.add_parser(name, description="\n".join(doclines))
             
             task_parser.set_defaults(func = func)
             if defaults:
