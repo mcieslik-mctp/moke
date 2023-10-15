@@ -5,6 +5,7 @@ Release
   - update setup.py version
   - update CHANGELOG.rst
   - python3 setup.py sdist
+  - get password from https://pypi.org/account/login/
   - twine upload dist/moke-xxx.tar.gz
 
 Documentation

@@ -1,11 +1,20 @@
 Changelog
 =========
 
+Version 1.2.3
+-------------
+  
+  - remove broken/partial support for cargs
+  - perserve formatting for docstrings
+  - allow main task in mokefile with other tasks, 
+    cannot be called but useful for documentation 
+    and custom global named args
+
+
 Version 1.2.2
 -------------
   
   - more fixes for python 3
-
 
 Version 1.2.1
 -------------

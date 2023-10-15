@@ -9,7 +9,7 @@
 
 __all__ = ["MokeError", "task", "stdin", "stdout", "stderr", "num", "doc",
            "INFO", "DEFAULT" ,"WARN", "ERROR", "required"]
-__version__ = "1.2.2"
+__version__ = "1.2.3"
 
 
 import io
