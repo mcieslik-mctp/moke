@@ -21,7 +21,7 @@ import multiprocessing
 from re import search
 from .path import path
 from itertools import zip_longest
-from argparse import ArgumentParser, FileType, SUPPRESS
+from argparse import ArgumentParser, FileType, SUPPRESS, RawDescriptionHelpFormatter
 from configparser import SafeConfigParser
 
 # logging
@@ -99,7 +99,6 @@ class task(object):
 
     @staticmethod
     def _makecfg(args):
-        args.pop("cargs")
         cfg = args.pop("config")
         parser = SafeConfigParser()
         parser.read(cfg.name)
@@ -200,17 +199,13 @@ class task(object):
 
     @classmethod
     def _funcparse(cls, doc):
-        # parses gathered functions
-        main_parser = ArgumentParser(description=doc)
+        # parses gathered functions, preserve formatting do not strip
+        main_parser = ArgumentParser(description=doc, formatter_class=RawDescriptionHelpFormatter)
 
         # global options
         defcfg = os.path.join(os.path.dirname(__file__), "data", "mokefile.ini")
         main_parser.add_argument("-config", type=file_r, default=defcfg, 
                                  help="(file_r) [default: %s] configuration file" % defcfg)
-
-        main_parser.add_argument("-cargs", type=str, default="", 
-                                help="(str) [default: ''] configuration file over-rides")
-        
         main_parser.add_argument("-ls", type=file_a,
                                  default=__deflog__["ls"],
                                  help="(file_a) [default: %s] logging stream" % __deflog__["ls"].name)
@@ -234,10 +229,11 @@ class task(object):
             doclines = []
             if func.__doc__ and func.__doc__.strip():
                 for l in func.__doc__.splitlines():
-                    l = l.strip()
-                    if l.startswith("-"):
-                        arglines.append(l)
-                    elif l:
+                    ## preserve formatting of docstrings
+                    ls= l.strip()
+                    if ls.startswith("-"):
+                        arglines.append(ls)
+                    else:
                         doclines.append(l)
             if name == "main":
                 task_parser = main_parser
@@ -316,6 +312,12 @@ class task(object):
         # the function
         func = args.pop("func")
         args.pop("command", None)
+        ## remove main function arguments like "command" or "config"
+        main_func = cls.__funcs.get("main")
+        if main_func and len(cls.__funcs) > 1:
+            margs, _, _, _ = inspect.getargspec(main_func)
+            for marg in margs:
+                args.pop(marg)
         # remember default and command line args
         names, _, _, defs = inspect.getargspec(func)
         defs = (defs or ()) # defs can be None
