@@ -120,7 +120,12 @@ class task(object):
                     value = cfg.get("log", name)
                     # manual type corrections
                     if name in ("stream",):
-                        value = open(value, "a+")
+                        if value == "stderr":
+                            value = stderr
+                        elif value == "stdout":
+                            value = stdout
+                        else:
+                            value = open(value, "a+")
                     cfgargs[name] = value
                 else:
                     cfgargs[name] = None
