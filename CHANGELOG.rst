@@ -1,6 +1,16 @@
 Changelog
 =========
 
+Version 1.2.5
+-------------
+  
+  - better formatting of subtask docstrings
+
+Version 1.2.4
+-------------
+  
+  - better logging defaults and support for stderr/stdout in ini
+
 Version 1.2.3
 -------------
   
@@ -9,7 +19,6 @@ Version 1.2.3
   - allow main task in mokefile with other tasks, 
     cannot be called but useful for documentation 
     and custom global named args
-
 
 Version 1.2.2
 -------------
