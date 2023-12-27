@@ -52,7 +52,7 @@ nan = float("nan")
 devnull = open(os.devnull, "wb")
 
 # monkey patching now to have simpler code later
-file_w = FileType("wb")
+file_w = FileType("w")
 file_w.__dict__["__name__"] = "file_w"
 file_r = FileType("rb")
 file_r.__dict__["__name__"] = "file_r"
