@@ -4,6 +4,12 @@ Changelog
 Version 1.2.5
 -------------
   
+  - Make compatible with python 3.11+
+  - Update documentation for PyPI changes
+
+Version 1.2.5
+-------------
+  
   - better formatting of subtask docstrings
 
 Version 1.2.4

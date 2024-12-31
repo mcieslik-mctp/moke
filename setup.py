@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 NAME = "moke"
-VERSION = "1.2.5"
+VERSION = "1.2.6"
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup
 
 CLASSIFIERS = [
     "Development Status :: 4 - Beta",

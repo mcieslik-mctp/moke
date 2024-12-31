@@ -4,8 +4,8 @@ Release
   - update moke.core.__version__
   - update setup.py version
   - update CHANGELOG.rst
-  - python3 setup.py sdist
-  - get password from https://pypi.org/account/login/
+  - python -m build --sdist
+  - generate and get token from https://pypi.org/account/login/ (starts with pypi-)
   - twine upload dist/moke-xxx.tar.gz
 
 Documentation
@@ -15,7 +15,14 @@ Documentation
   - regenerate docs/html
   - push docs/html to gh-pages
   - push moke to github
-    
+
+Build Dependencies
+------------------
+
+  - pip install setuptools
+  - pip install build
+  - pip install twine
+
 TODO
 ----
 

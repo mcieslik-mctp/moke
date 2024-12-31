@@ -9,7 +9,7 @@
 
 __all__ = ["MokeError", "task", "stdin", "stdout", "stderr", "num", "doc",
            "INFO", "DEFAULT" ,"WARN", "ERROR", "required"]
-__version__ = "1.2.5"
+__version__ = "1.2.6"
 
 
 import io
@@ -22,7 +22,7 @@ from re import search
 from .path import path
 from itertools import zip_longest
 from argparse import ArgumentParser, FileType, SUPPRESS, RawDescriptionHelpFormatter
-from configparser import SafeConfigParser
+from configparser import ConfigParser
 
 # logging
 DEFAULT = 23
@@ -100,7 +100,7 @@ class task(object):
     @staticmethod
     def _makecfg(args):
         cfg = args.pop("config")
-        parser = SafeConfigParser()
+        parser = ConfigParser()
         parser.read(cfg.name)
         return parser
 
@@ -165,7 +165,7 @@ class task(object):
         # parses (sometypeX) or (``sometypeX``),
         # where X is a number or ? + * (argparse nargs)
         try:
-            sometype, nargs = search("\(`{0,2}([a-z_]*)([\?\+\*]{1}|[0-9]?)`{0,2}\)",
+            sometype, nargs = search(r"\(`{0,2}([a-z_]*)([\?\+\*]{1}|[0-9]?)`{0,2}\)",
                                      line).groups()
         except AttributeError:
             return None
@@ -227,7 +227,7 @@ class task(object):
         # subcommand options
         sub_parsers = None
         for name, func in cls.__funcs.items():
-            args, varargs, varkwargs, defaults = inspect.getargspec(func)
+            args, varargs, varkwargs, defaults, _, _, _ = inspect.getfullargspec(func)
             if varargs or varkwargs:
                 raise MokeError("*args and **kwargs not supported in tasks")
             arglines = []
@@ -320,11 +320,11 @@ class task(object):
         ## remove main function arguments like "command" or "config"
         main_func = cls.__funcs.get("main")
         if main_func and len(cls.__funcs) > 1:
-            margs, _, _, _ = inspect.getargspec(main_func)
+            margs, _, _, _, _, _, _ = inspect.getfullargspec(func)
             for marg in margs:
                 args.pop(marg)
         # remember default and command line args
-        names, _, _, defs = inspect.getargspec(func)
+        names, _, _, defs, _, _, _ = inspect.getfullargspec(func)
         defs = (defs or ()) # defs can be None
         diff = len(names) - len(defs)
         # final set of function parameters
