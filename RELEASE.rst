@@ -5,7 +5,7 @@ Release
   - update setup.py version
   - update CHANGELOG.rst
   - python -m build --sdist
-  - generate and get token from https://pypi.org/account/login/ (starts with pypi-)
+  - Find SECRET_PYPI_TOKEN if none, get token from https://pypi.org/account/login/ (starts with pypi-)
   - twine upload dist/moke-xxx.tar.gz
 
 Documentation
