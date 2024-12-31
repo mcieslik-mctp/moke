@@ -1,3 +1,4 @@
+SECRET_PYPI_TOKEN
 .venv
 
 *.py[cod]
