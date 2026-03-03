@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moke"
+version = "1.3.0"
+description = "moke is not like make"
+readme = "README.rst"
+license = "BSD-3-Clause"
+requires-python = ">=3.10"
+authors = [
+    {name = "Marcin Cieslik", email = "mcieslik@med.umich.edu"},
+]
+keywords = ["make", "ant", "rake", "paver", "build", "shell", "argparse", "bash"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = "http://mcieslik-mctp.github.io/moke"
+
+[project.scripts]
+moke = "moke.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+moke = ["data/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]

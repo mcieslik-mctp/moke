@@ -1,5 +1,6 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 from moke import *
+import io
 import sys
 
 @task
@@ -12,13 +13,11 @@ def fromdef_float(i=1.):
 
 @task
 def fromdef_path_r(i=stdin):
-    assert type(i) == file
-    assert i.mode == "r", i.mode
+    assert isinstance(i, (io.TextIOWrapper, io.BufferedReader))
 
 @task
 def fromdef_path_w(i=stdout):
-    assert type(i) == file
-    assert i.mode == "w"
+    assert isinstance(i, io.TextIOWrapper)
 
 @task
 def fromdoc_none_int(i=None):
@@ -126,7 +125,7 @@ def greet(who, shout=False, times=1):
     greetings = ("Hello %s and %s!\n" % (who[0], who[1])) * times
     if shout:
         greetings = greetings.upper()
-    print greetings.strip()
+    print(greetings.strip())
     log("greeted: %s and %s" % (who[0], who[1]), INFO)
 
     

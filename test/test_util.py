@@ -1,12 +1,11 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 """
 Tests for ``moke.util``
 """
 import unittest
 import moke.util
 
-class Test_core(unittest.TestCase):
+class Test_util(unittest.TestCase):
 
     def test_import(self):
         assert moke.util.run_app

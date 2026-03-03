@@ -35,10 +35,7 @@ d = path('/home/guido/bin')
 for f in d.files('*.py'):
     f.chmod(0755)
 
-This module requires Python 2.3 or later.
 """
-
-from __future__ import generators
 
 import sys, warnings, os, fnmatch, glob, shutil, codecs, hashlib, errno
 
@@ -59,10 +56,7 @@ else:
 
 _base = str
 
-# Universal newline support
-_textmode = 'U'
-if hasattr(__builtins__, 'file') and not hasattr(file, 'newlines'):
-    _textmode = 'r'
+_textmode = 'r'
 
 class TreeWalkWarning(Warning):
     pass
@@ -219,20 +213,6 @@ class path(_base):
         returns path('/home/guido/python.tar').
         """
         return self.splitext()[0]
-
-    if hasattr(os.path, 'splitunc'):
-        def splitunc(self):
-            unc, rest = os.path.splitunc(self)
-            return self.__class__(unc), rest
-
-        def _get_uncshare(self):
-            unc, r = os.path.splitunc(self)
-            return self.__class__(unc)
-
-        uncshare = property(
-            _get_uncshare, None, None,
-            """ The UNC mount point for this path.
-            This is empty for paths on local drives. """)
 
     def joinpath(self, *args):
         """ Join two or more path components, adding a separator
@@ -470,7 +450,7 @@ class path(_base):
             try:
                 isfile = child.isfile()
                 isdir = not isfile and child.isdir()
-            except:
+            except Exception:
                 if errors == 'ignore':
                     continue
                 elif errors == 'warn':
@@ -1008,8 +988,7 @@ class path(_base):
     copy = shutil.copy
     copy2 = shutil.copy2
     copytree = shutil.copytree
-    if hasattr(shutil, 'move'):
-        move = shutil.move
+    move = shutil.move
     rmtree = shutil.rmtree
 
 

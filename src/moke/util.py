@@ -13,9 +13,10 @@ __all__ = ["chk", "chk_exist", "chk_exit", "chk_pth", "chk_type", "chks",
 import os
 import sys
 import logging
-from .path import path
+from subprocess import DEVNULL, Popen, PIPE
 from tempfile import NamedTemporaryFile
-from subprocess import Popen, PIPE
+
+from .path import path
 
 
 def chk_exit(status, cargo=None, always=False):
@@ -100,9 +101,8 @@ def sh(command, **kwargs):
         See the documentation for "args" in ``subprocess.Popen``.
     
     """
-    NULL = open(os.devnull, 'w')
-    app = Popen(command, stdin=None, stdout=NULL, stderr=NULL, \
-                                        shell=True, **kwargs)
+    app = Popen(command, stdin=None, stdout=DEVNULL, stderr=DEVNULL,
+                shell=True, **kwargs)
     app.communicate()
     code = app.wait()
     return code

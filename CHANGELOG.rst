@@ -1,6 +1,19 @@
 Changelog
 =========
 
+Version 1.3.0
+-------------
+
+  - Modernize packaging: replace setup.py with pyproject.toml
+  - Replace bin/moke script with console_scripts entry point
+  - Replace eval() with safe type lookup dict
+  - Replace deprecated argparse.FileType (removed in Python 3.14)
+  - Remove vendored path.py Python 2 artifacts
+  - Fix resource leaks (unclosed devnull file handles)
+  - Fix duplicate and broken test methods
+  - Add pytest support
+  - Requires Python 3.10+
+
 Version 1.2.6
 -------------
   

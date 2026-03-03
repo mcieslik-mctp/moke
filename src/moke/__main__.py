@@ -10,15 +10,16 @@ try:
 except ImportError:
     sys.exit("moke: *** Not properly installed.  Stop.")
 
-if __name__ == "__main__":
-    # update path with current working directory   
+
+def main():
+    # update path with current working directory
     sys.path.insert(0, os.getcwd())
     # first argument is the moke executable
     narg = len(sys.argv)
 
     # moke new
     if narg >= 2 and sys.argv[1] == "new":
-        sys.argv.pop(1) # remove "new"
+        sys.argv.pop(1)  # remove "new"
         # determine destinations for script and ini
         if narg == 3:
             base = sys.argv.pop(1)
@@ -30,7 +31,7 @@ if __name__ == "__main__":
         else:
             sys.stderr.write("moke: *** moke new name\n")
             sys.exit("moke: *** Wrong number of arguments. Stop.")
-            
+
         # sources
         scr = os.path.join(os.path.dirname(moke.__file__), "data", "mokefile.py")
         ini = os.path.join(os.path.dirname(moke.__file__), "data", "mokefile.ini")
@@ -47,25 +48,27 @@ if __name__ == "__main__":
             mode = os.stat(scrdst).st_mode
             os.chmod(scrdst, mode | stat.S_IXUSR)
         else:
-            sys.exit("moke: *** File %s or %s already exists. Stop." % (scrbase, \
+            sys.exit("moke: *** File %s or %s already exists. Stop." % (scrbase,
                                                                         inibase))
         # run newly created template
         sys.stderr.write("moke: *** Created %s and %s\n" % (scrbase, inibase))
 
         executable = ("moke" if (scrbase == "mokefile.py") else ("./" + scrbase))
-        
+
         sys.stderr.write("moke: *** For help run '%s --help\n" % executable)
         sys.exit()
 
     # check if mokefile exists
     mokefile = "mokefile.py"
-    mokeini = "mokefile.ini"
     if not os.path.exists(mokefile):
         sys.exit("moke: *** No mokefile.py found. Try 'moke new'. Stop.")
-        
-    # run mokefile and make it thing it is executed
-    ret =  runpy.run_path(mokefile, run_name="__main__")
+
+    # run mokefile and make it think it is executed
+    ret = runpy.run_path(mokefile, run_name="__main__")
     gottask = any([isinstance(obj, moke.core.task) for obj in ret.values()])
     if not gottask:
         sys.exit("moke: *** No task specified in %s.  Stop." % mokefile)
-    
+
+
+if __name__ == "__main__":
+    main()

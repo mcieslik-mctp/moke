@@ -8,9 +8,7 @@
 """
 
 __all__ = ["MokeError", "task", "stdin", "stdout", "stderr", "num", "doc",
-           "INFO", "DEFAULT" ,"WARN", "ERROR", "required"]
-__version__ = "1.2.6"
-
+           "INFO", "DEFAULT", "WARN", "ERROR", "required"]
 
 import io
 import os
@@ -18,11 +16,14 @@ import sys
 import inspect
 import logging
 import multiprocessing
+from importlib.metadata import version
 from re import search
 from .path import path
 from itertools import zip_longest
-from argparse import ArgumentParser, FileType, SUPPRESS, RawDescriptionHelpFormatter
+from argparse import ArgumentParser, SUPPRESS, RawDescriptionHelpFormatter
 from configparser import ConfigParser
+
+__version__ = version("moke")
 
 # logging
 DEFAULT = 23
@@ -33,7 +34,7 @@ logging.DEFAULT = DEFAULT
 from logging import INFO, WARN, ERROR
 from sys import stdin, stdout, stderr
 
-class RequiredArgument(object):
+class RequiredArgument:
     pass
 
 required = RequiredArgument
@@ -49,17 +50,34 @@ __logforms__ = {
 
 
 nan = float("nan")
-devnull = open(os.devnull, "wb")
 
-# monkey patching now to have simpler code later
-file_w = FileType("w")
-file_w.__dict__["__name__"] = "file_w"
-file_r = FileType("rb")
-file_r.__dict__["__name__"] = "file_r"
-file_a = FileType("a+")
-file_a.__dict__["__name__"] = "file_a"
 
-# automatic import of mokelib
+class _MokeFileType:
+    """Replacement for argparse.FileType (deprecated in 3.14).
+
+    A callable that opens a file path in the given mode,
+    treating ``-`` as stdin (for read modes) or stdout (for write modes).
+    """
+
+    def __init__(self, mode, name):
+        self._mode = mode
+        self.__name__ = name
+
+    def __call__(self, path):
+        if path == "-":
+            if "r" in self._mode:
+                return stdin
+            else:
+                return stdout
+        return open(path, self._mode)
+
+    def __repr__(self):
+        return f"{self.__name__}({self._mode!r})"
+
+
+file_w = _MokeFileType("w", "file_w")
+file_r = _MokeFileType("rb", "file_r")
+file_a = _MokeFileType("a+", "file_a")
 
 class MokeError(Exception):
     """General moke exception.
@@ -74,9 +92,14 @@ def num(x):
     except ValueError:
         try:
             num = float(x)
-        except:
+        except ValueError:
             num = nan
     return num
+
+_KNOWN_TYPES = {
+    "str": str, "int": int, "float": float, "path": path,
+    "file_r": file_r, "file_w": file_w, "file_a": file_a, "num": num,
+}
 
 def doc(docstring):
     """Decorator that attaches a docstring to a function.
@@ -91,7 +114,7 @@ def doc(docstring):
     return docwrapper
 
 
-class task(object):
+class task:
     """Decorator that creates an argparse subcommand from a function.
     """
     
@@ -170,13 +193,9 @@ class task(object):
         except AttributeError:
             return None
         # test if sometype is a known type
-        try:
-            sometype = eval(sometype)
-        except (NameError, SyntaxError):
+        if sometype not in _KNOWN_TYPES:
             return None
-        if not (issubclass(type(sometype), type) or \
-                isinstance(sometype, FileType) or sometype is num):
-            return None
+        sometype = _KNOWN_TYPES[sometype]
         # fix empty string
         nargs = nargs or None
         if nargs not in ('+', '?', '*', None):
@@ -282,7 +301,7 @@ class task(object):
                             argtype = type(deft)
                         if argtype is io.TextIOWrapper:
                             # stdin, stdout or an open file
-                            argtype = eval("file_" + deft.mode[0])
+                            argtype = _KNOWN_TYPES["file_" + deft.mode[0]]
 
                     # default = most types
                     argname = argtype.__name__
